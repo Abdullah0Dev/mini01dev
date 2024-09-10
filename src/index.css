@@ -1,5 +1,59 @@
-body {
-  background: var(--tg-theme-secondary-bg-color, white);
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Press Start 2P', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  
+}
+* {
   padding: 0;
   margin: 0;
+}
+.press-start-2p-regular {
+  font-family: "Press Start 2P", system-ui;
+  /* font-weight: 400;
+  font-style: normal; */
+  background-color: '#F4EBA7';
+}
+  .image-wrapper {
+  height: 70%; /* Adjust the height to show 70% of the original image */
+  overflow: hidden; /* Hide the part of the image that exceeds the container */
+}
+
+.coin-button {
+  font-family: 'Press Start 2P', sans-serif; /* This mimics the pixelated text style */
+  font-size: 20px;
+  color: black;
+  background-color: #f0f8ff; /* Matches the light blue background */
+  padding: 21px 63px;
+  border: 1px solid #ccc;
+  box-shadow: -3px 3px 0px #1a6dc4; /* Adjusted shadow for bottom-left direction */
+   
+  margin: 20px;
+  /* border-radius: 5px; */
+}
+.createdCoin {
+  font-family: 'Press Start 2P', sans-serif; /* This mimics the pixelated text style */
+  color: black;
+  background-color: #f0f8ff; /* Matches the light blue background */
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  box-shadow: -3px 3px 0px #1a6dc4; /* Adjusted shadow for bottom-left direction */
+  /* display: inline-block; */
+  /* margin: 20px; */
+  border-radius: 5px;
+}
+.searchCoin {
+  font-family: 'Press Start 2P', sans-serif; /* This mimics the pixelated text style */
+  color: black;
+  padding: 7px 20px;
+  border: 1px solid #ccc;
+  box-shadow: -3px 3px 0px #1a6dc4; /* Adjusted shadow for bottom-left direction */
+  /* display: inline-block; */
+  /* margin: 20px; */
+  border-radius: 5px;
 }
