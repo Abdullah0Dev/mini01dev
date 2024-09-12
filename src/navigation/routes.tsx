@@ -1,13 +1,16 @@
-import type { ComponentType, JSX } from 'react';
+import type { ComponentType, JSX } from "react";
 
-import { IndexPage } from '@/pages/IndexPage/IndexPage';
-import { InitDataPage } from '@/pages/InitDataPage/InitDataPage';
-import { LaunchParamsPage } from '@/pages/LaunchParamsPage/LaunchParamsPage.tsx';
-import { ThemeParamsPage } from '@/pages/ThemeParamsPage/ThemeParamsPage.tsx';
-import { TONConnectPage } from '@/pages/TONConnectPage/TONConnectPage';
-import Welcome from '@/pages/Welcome/Welcome';
-import CreateCoin from '@/pages/CreateCoin/CreateCoin';
-import Terms from '@/pages/Terms/Terms';
+import { IndexPage } from "@/pages/IndexPage/IndexPage";
+import { InitDataPage } from "@/pages/InitDataPage/InitDataPage";
+import { LaunchParamsPage } from "@/pages/LaunchParamsPage/LaunchParamsPage.tsx";
+import { ThemeParamsPage } from "@/pages/ThemeParamsPage/ThemeParamsPage.tsx";
+import { TONConnectPage } from "@/pages/TONConnectPage/TONConnectPage";
+import Welcome from "@/pages/Welcome/Welcome";
+import CreateCoin from "@/pages/CreateCoin/CreateCoin";
+import Terms from "@/pages/Terms/Terms";
+import CoinDetails from "@/pages/CoinDetails/CoinDetails";
+import Onboarding1 from "@/pages/onboarding/Onboarding1";
+import Onboarding2 from "@/pages/onboarding/Onboarding2";
 
 interface Route {
   path: string;
@@ -17,17 +20,24 @@ interface Route {
 }
 
 export const routes: Route[] = [
-  { path: '/home', Component: CreateCoin },
-  { path: '/', Component: Welcome },
-  { path: '/understood', Component: Terms },
-  { path: '/index', Component: IndexPage },
-  { path: '/init-data', Component: InitDataPage, title: 'Init Data' },
-  { path: '/theme-params', Component: ThemeParamsPage, title: 'Theme Params' },
-  { path: '/launch-params', Component: LaunchParamsPage, title: 'Launch Params' },
+  { path: "/home", Component: CreateCoin },
+  { path: "/welcome", Component: Welcome },
+  { path: "/", Component: Onboarding1 },
+  { path: "/onboarding2", Component: Onboarding2 },
+  { path: "/understood", Component: Terms },
+  { path: "/coinDetails", Component: CoinDetails },
+  { path: "/index", Component: IndexPage },
+  { path: "/init-data", Component: InitDataPage, title: "Init Data" },
+  { path: "/theme-params", Component: ThemeParamsPage, title: "Theme Params" },
   {
-    path: '/ton-connect',
+    path: "/launch-params",
+    Component: LaunchParamsPage,
+    title: "Launch Params",
+  },
+  {
+    path: "/ton-connect",
     Component: TONConnectPage,
-    title: 'TON Connect',
+    title: "TON Connect",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
