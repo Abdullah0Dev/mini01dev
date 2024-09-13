@@ -1,12 +1,10 @@
-import { Link } from "react-router-dom";
 import home from "../../../assets/index";
 import { useState } from "react";
-import CandlestickChart from "@/components/ChartComponent";
-import ChartComponent from "@/components/ChartComponent";
-
 const CoinDetails = () => {
   const [onInfo, setOnInfo] = useState(true);
   const [transactionMenu, setTransactionMenu] = useState(false);
+  const [transactionType, setTransactionType] = useState(""); // New state to track buy or sell
+
   return (
     <div className="bg-coin w-full text-black overflow-y-clip overflow-hidden bg-cover">
       <div className="flex w-full mx-5  py-6 items-center gap-x-6 justify-start">
@@ -65,6 +63,7 @@ const CoinDetails = () => {
             <p>Twitter</p>
             <p>Telegram</p>
           </div>
+          <hr className="h-[2px]   my-3 bg-white mx-5" />
           {/* Create Coin */}
           <div className="custom_shadow bg-white mx-5 py-3 mb-5 px-6">
             <div className="text-xs text-center">Liquidity Unlocks in...</div>
@@ -172,79 +171,16 @@ const CoinDetails = () => {
         </div>
       ) : (
         // charts
-        <div className="w-full h-full font-sans  mx-3">
-          <div className="chart bg-white h-full grid grid-cols-6 py-5 text-[#C4C4C4] px-3">
-            {/* Left Toolbar */}
-            <div className="left-slide flex flex-col justify-start items-center gap-y-1 w-[25px]">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((index) => (
-                <img
-                  src={home.tool}
-                  className="mb-2"
-                  alt={`tool${index}`}
-                  key={index}
-                />
-              ))}
-            </div>
-
-            {/* Main Chart Section */}
-            <div className="col-span-4 ">
-              {/* Timeframes and Settings */}
-              <div className="flex items-center justify-between mb-5">
-                <div className="flex gap-x-3 font-semibold text-xs font-sans">
-                  <p>1m</p>
-                  <p>30m</p>
-                  <p className="text-[#2F80ED]">1h</p>
-                </div>
-                <div className="flex gap-x-3 font-semibold text-xs font-sans">
-                  <p>Indicators</p>
-                  <p>Compare</p>
-                </div>
-              </div>
-
-              {/* Chart Info */}
-              <div className="flex items-center gap-x-6 text-[6px] justify-between mb-5">
-                <div className="flex gap-x-3 font-semibold  font-sans">
-                  <p>BTC/ETH</p>
-                  <p>1h</p>
-                  <p className="">Uniswap</p>
-                </div>
-                <div className="flex gap-x-3  font-sans">
-                  <p className="text-[#27AE60] flex gap-[1px]">
-                    <span className="text-[#C4C4C4]">O</span> 0.0682
-                  </p>
-                  <p className="text-[#FF5757] flex gap-[1px]">
-                    <span className="text-[#C4C4C4]">H</span> 0.0682
-                  </p>
-                  <p className="text-[#FF5757] flex gap-[1px]">
-                    <span className="text-[#C4C4C4]">L</span> 0.0682
-                  </p>
-                  <p className="text-[#FF5757] flex gap-[1px]">
-                    <span className="text-[#C4C4C4]">C</span> 0.0682
-                  </p>
-                </div> 
-              </div>
-                <div className="text-[#27AE60]  text-[6px] flex gap-[2px]">
-                  <span className="text-[#C4C4C4]">Volume</span> $223K
-                </div>
-
-              {/* Chart Area (replace this with the actual chart) */}
-              <div className="bg-blue-100 h-64 flex items-center justify-center">
-                <img src={home.charts} alt="Chart" />
-              </div>
-              <div className="right-slide flex flex-col justify-end items-center gap-y-1 text-[7px] w-[25px]">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((index) => (
-                 <p>$0.06642</p>
-              ))}
-            </div> 
-            </div>
-          </div>
-
+        <div className=" h-full  mx-3 items-center justify-center">
           <div className="flex items-center my-4 self-center ">
             <img src={home.chart} className="w-full" alt="moreInfo" />
           </div>
           <div className="flex custom_shadow px-5 items-center justify-around bg-white py-5 mb-4">
             <button
-              onClick={() => setTransactionMenu(true)}
+              onClick={() => {
+                setTransactionMenu(true);
+                setTransactionType("buy");
+              }}
               className="text-xl text-green-400"
             >
               {" "}
@@ -252,7 +188,10 @@ const CoinDetails = () => {
             </button>
             <hr className="h-full rotate-90 bg-black w-4" />
             <button
-              onClick={() => setTransactionMenu(true)}
+              onClick={() => {
+                setTransactionMenu(true);
+                setTransactionType("sell");
+              }}
               className="text-xl text-red-400"
             >
               {" "}
@@ -304,21 +243,21 @@ const CoinDetails = () => {
       )}
       {transactionMenu && (
         <div className="w-full absolute top-0 left-0 h-full items-center justify-center flex bg-black/30">
-          <div className="mx-3 w-full  rounded-md bg-white ">
+          <div
+            className={`mx-3 w-full  rounded-md   ${
+              transactionType === "buy"
+                ? "custom_green_shadow"
+                : transactionType === "sell"
+                ? "custom_red_shadow"
+                : ""
+            } bg-white `}
+          >
             <div className="flex items-center justify-around bg-white py-5 mb-4">
-              <button
-                onClick={() => setTransactionMenu(true)}
-                className="text-xl text-green-400 border-green-400 bg-white border px-12 py-2"
-              >
-                {" "}
-                Buy{" "}
+              <button onClick={() => setTransactionMenu(true)}>
+                <img src="../assets/buy.png" alt="buy_btn" />
               </button>
-              <button
-                onClick={() => setTransactionMenu(true)}
-                className="text-xl text-red-400  border-green-400 bg-white border px-12 py-2"
-              >
-                {" "}
-                Sell{" "}
+              <button onClick={() => setTransactionMenu(true)}>
+                <img src="../assets/sell.png" alt="sell_btn" />
               </button>
             </div>
             <div className="flex items-center justify-between border-b-4 text-black mx-5">
@@ -337,18 +276,17 @@ const CoinDetails = () => {
                 />
               </div>
             </div>
-            <p className="text-[10px]  px-5 my-2">
+            <p className="text-[10px]  px-5 mt-2">
               reset 0.05ETH 0.05ETH 0.2ETH 1ETH
             </p>
-            <div className=" my-9 mx-5 py-4 flex justify-center items-center border border-blue-500">
-              <button
-                onClick={() => setTransactionMenu(false)}
-                className="text-lg text-black   "
-              >
-                {" "}
-                Sell{" "}
-              </button>
-            </div>
+
+            <button
+              onClick={() => setTransactionMenu(false)}
+              //  className=" my-9 mx-5 py-4 flex justify-center items-center border border-blue-500"
+              className="py-8 flex justify-center self-center w-full items-center "
+            >
+              <img src="../assets/trade.png" alt="trade_btn" />
+            </button>
           </div>
         </div>
       )}

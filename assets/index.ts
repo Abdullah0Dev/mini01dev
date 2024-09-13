@@ -8,7 +8,7 @@ import coinBG from "./coinpay.png";
 import searchField from "./search_field.png";
 import coin from "./coin.png";
 import btm from "./btm.png";
-import ball from "./ball.png";
+import eth from "./eth.png";
 import createBg from "./cr_bg.png";
 import searchIcon from "./search.png";
 import radiux from "./radiux.png";
@@ -21,6 +21,7 @@ import charts from "./Candlesticks.png";
 
 export default {
   home,
+  eth,
   tool,
   box,
   download,

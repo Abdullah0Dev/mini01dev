@@ -24,7 +24,7 @@ const Onboarding1 = () => {
 
         <div className="flex items-center gap-x-2">
           <p className="text-sm">ETH</p>
-          <img src={home.coin} alt="token" className="w-8 h-8 object-contain" />
+          <img src={home.eth} alt="token" className="w-8 h-8 object-contain" />
         </div>
       </div>
       <div className="flex items-center justify-center">

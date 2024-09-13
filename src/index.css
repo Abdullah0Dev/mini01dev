@@ -66,3 +66,19 @@
   /* margin: 20px; */
   border-radius: 5px;
 }
+.custom_green_shadow{
+  font-family: 'Press Start 2P', sans-serif; /* This mimics the pixelated text style */  
+  border: 1px solid #ccc;
+  box-shadow: -3px 3px 0px #1ac420; /* Adjusted shadow for bottom-left direction */
+  /* display: inline-block; */
+  /* margin: 20px; */
+  border-radius: 5px;
+}
+.custom_red_shadow{
+  font-family: 'Press Start 2P', sans-serif; /* This mimics the pixelated text style */  
+  border: 1px solid #ccc;
+  box-shadow: -3px 3px 0px #c41a1a; /* Adjusted shadow for bottom-left direction */
+  /* display: inline-block; */
+  /* margin: 20px; */
+  border-radius: 5px;
+}
